@@ -47,14 +47,15 @@ export class Home extends React.Component {
   }
 
   componentDidUpdate = (prevProps) => {
-    const { locationData, locationType } = this.props;
-
-    if (prevProps.locationData !== locationData) {
+    const { locationData, locationType, requestType } = this.props;
+    console.log(this.props);
+    if (prevProps.locationData !== locationData || prevProps.requestType !== requestType) {
       this.props.history.push({
         pathname: '/current-weather',
         state: {
           locationType: locationType,
           locationData: locationData,
+          requestType: requestType,
         },
       });
     }
@@ -95,10 +96,12 @@ export class Home extends React.Component {
 const mapStateToProps = function(state) {
   const locationData = state && state.locationData;
   const locationType = state && state.locationType;
+  const requestType = state && state.requestType;
 
   return {
     locationType: locationType,
     locationData: locationData,
+    requestType: requestType,
   };
 };
 

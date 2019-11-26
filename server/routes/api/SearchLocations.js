@@ -5,9 +5,9 @@ module.exports = (app) => {
 
   app.post('/search-location-weather', (req, res) => {
     const requestBody = req.body;
+    console.log(requestBody);
     const apiUrl = generateWebAppURL(requestBody.locationType, requestBody.locationData);
 
-    console.log(apiUrl);
     fetch(apiUrl)
       .then(res => res.json())
       .then(data => {
