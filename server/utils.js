@@ -2,8 +2,13 @@ const url = require('url');
 const config = require('./config');
 
 module.exports = {
-  generateWebAppURL: function(locationConfigType, locationConfigData) {
-    const baseUrlConfig = config.baseUrl;
+  generateWebAppURL: function(locationConfigType, locationConfigData, requestConfigType) {
+    let baseUrlConfig = {};
+    if (requestConfigType === 'forecast'){
+      baseUrlConfig = config.baseForecastUrl;
+    } else if (requestConfigType === 'predict'){
+      baseUrlConfig = config.basePredictUrl;
+    }
     const APIkey = config.APIkey;
     const queryConfig = config.query;
 

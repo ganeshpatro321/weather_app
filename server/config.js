@@ -1,8 +1,14 @@
 module.exports = {
-  baseUrl: {
+  baseForecastUrl: {
     protocol: 'http',
     hostname: 'api.openweathermap.org',
     path: '/data/2.5/weather',
+  },
+
+  basePredictUrl: {
+    protocol: 'http',
+    hostname: 'api.openweathermap.org',
+    path: '/data/2.5/forecast',
   },
 
   query: {
