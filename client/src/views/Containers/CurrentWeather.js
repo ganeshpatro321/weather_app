@@ -14,6 +14,7 @@ class CurrentWeather extends Component {
   }
 
   componentDidMount() {
+    console.log('Current Weather component is mounting');
     console.log(this.props);
   }
 
