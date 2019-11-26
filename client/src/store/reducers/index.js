@@ -7,6 +7,7 @@ const defaultState = {
   loading: true,
   loaded: false,
   error: false,
+  requestType: '',
 };
 
 const rootReducer = function(state = defaultState, action) {
@@ -14,7 +15,7 @@ const rootReducer = function(state = defaultState, action) {
 
   switch (action.type) {
     case SET_LOCATION_TEXT_INPUT: {
-      return { ...state, locationData: payload.locationData };
+      return { ...state, locationData: payload.locationData, requestType: payload.requestType };
     }
     case SET_LOCATION_RADIO_INPUT: {
       return { ...state, locationType: payload.locationType };

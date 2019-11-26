@@ -38,8 +38,12 @@ export class Home extends React.Component {
     this.props.actions.setLocationRadioInput({ locationType: event.target.value });
   }
 
-  handleButtonClick = (event) => {
-    this.props.actions.setLocationTextInput({ locationData: this.inputFieldRef.current.value });
+  handleButtonClick = (requestType, event) => {
+    console.log(requestType);
+    this.props.actions.setLocationTextInput({
+      locationData: this.inputFieldRef.current.value,
+      requestType: requestType,
+    });
   }
 
   componentDidUpdate = (prevProps) => {
@@ -73,8 +77,8 @@ export class Home extends React.Component {
             placeholder='Enter details..'
             name='zipcode'
           />
-          <button onClick={this.handleButtonClick}>ENTER</button>
-          {/* <button onCLick={this.handlePredict}>PREDICT</button> */}
+          <button onClick={() => this.handleButtonClick('forecast')}>ENTER</button>
+          <button onClick={() => this.handleButtonClick('predict')}>PREDICT</button>
         </div>
         <div className='radio-button-section'>
           <RadioButtonSection
